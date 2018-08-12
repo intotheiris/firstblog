@@ -24,7 +24,7 @@ SECRET_KEY = sggss
 LOGIN_REDIRECT_URL = '/'
 SECURE_SSL_REDIRECT = True
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
 
