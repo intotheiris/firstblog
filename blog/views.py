@@ -5,6 +5,9 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 from .models import Post
 from .forms import PostForm, CommentForm
+from .deadfiregenerator import *
+from .dicts import *
+from django.http import HttpResponse
 
 # Create your views here.
 def post_list(request):
@@ -14,6 +17,11 @@ def post_list(request):
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
     return render(request, 'blog/post_detail.html', {'post': post})
+    
+def generator_page(request):
+    return render(request, 'blog/generator.html', {'gender' : gender, 'race' : race, 'subrace' : subrace, 'singleormulti' : singleormulti,
+     'first_class' : first_class, 'first_subclass' : first_subclass, 'second_class' : second_class, 'multiclass' : multiclass,
+     'multi_subclass' : multi_subclass, 'background' : background, 'culture' : culture})
 
 @login_required
 def post_new(request):

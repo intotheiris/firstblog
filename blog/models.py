@@ -1,5 +1,7 @@
 from django.db import models
 from django.utils import timezone
+from .deadfiregenerator import *
+from .dicts import *
 
 
 class Post(models.Model):
@@ -31,3 +33,18 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.text
+
+def deadfiregeneratortt(f):
+    class WritableObject:
+        def __init__(self):
+            self.content = []
+        def write(self, string):
+            self.content.append(string)
+
+        def new_f(*args, **kwargs):
+            printed = WritableObject()
+            sys.stdout = printed
+            f(*args, **kwargs)
+            sys.stdout = sys.__stdout__
+            return HttpResponse()
+            return new_f
