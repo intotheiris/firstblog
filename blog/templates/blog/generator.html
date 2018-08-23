@@ -2,20 +2,23 @@
 {% include "deadfiregenerator.py" %}
 {% include "dicts.py" %}
 {% block content %}
-<h1>Deadfire Character Generator</h1>
 
             {% csrf_token %}
             {% autoescape off %}
-    <p>{{ gender }}<br> {{ race }}<br> {{subrace}}</p>
+<div class='generator'>
+  <div class='post'>
+    <p>Gender: {{ gender }}<br>Race: {{ race }}<br>Subrace: {{subrace}}</p>
     {% if singleormulti == 1 %}
-    <p> {{ first_class }}<br> {{ first_subclass }}</p>
+    <p>Class: {{ first_class }}<br>Subclass: {{ first_subclass }}</p>
     {% endif %}
     {% if singleormulti == 2 %}
-    <p> {{ multiclass }} ({{first_class}}/{{second_class}}) <br> {{multi_subclass}}<br></p>
+    <p>Class: {{ multiclass }} ({{first_class}}/{{second_class}}) <br>Subclass: {{multi_subclass}}<br></p>
     {% endif %}
-    <p> {{ culture}} <br> {{ background }}<br>
+    <p>Culture: {{ culture}} <br>Background: {{ background }}<br>
 {% endautoescape %}
-
-            <button type='reset'>Generate new character</button>
+        <form action='/deadfiregenerator' method='GET'>
+            <button class='button' type='submit'>Generate new character</button>
         </form>
+      </div>
+      </div>
 {% endblock %}

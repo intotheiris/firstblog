@@ -3,13 +3,16 @@
 <html>
     <head>
       <title>Stefan's Development Blog</title>
-       <link href="https://fonts.googleapis.com/css?family=Black+Han+Sans|Nanum+Gothic+Coding" rel="stylesheet">
+       <link href="https://fonts.googleapis.com/css?family=Poppins|Muli" rel="stylesheet">
        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
 
     </head>
     <body>
+
+      <script type="text/javascript" src="{{ STATIC_URL }} /static/jquery-3.1.1.min.js">
+</script>
       <div class="page-header">
         {% if user.is_authenticated %}
         <a href="{% url 'post_draft_list' %}" class="top-menu">
@@ -22,8 +25,12 @@
           <span class="glyphicon glyphicon-lock"></span></a>
         {% endif %}
           <h1><a href="/">Stefan's Development Blog</a></h1>
-      </div>
+<h2>Projects: <a href="deadfiregenerator/">Deadfire Character Generator</a></h2>
+
+</div>
+
       <div class="content container">
+
           <div class="row">
               <div class="col-md-8">
               {% block content %}
@@ -31,5 +38,6 @@
               </div>
           </div>
       </div>
+
   </body>
 </html>

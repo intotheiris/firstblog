@@ -56,20 +56,3 @@ multi_subclass = first_subclass + "/" + choice(class_dict[second_class])
 
 # Randomly picks if singleclass (1) or multiclass (2)
 singleormulti = randint(1,2)
-
-def pleasework():
-    print("Gender: " + gender)
-    print("Race: " + race)
-    print("Subrace: " + subrace)
-# Output for single class character
-    if singleormulti == 1:
-      print("Class: " + first_class)
-      print("Subclass: " + first_subclass)
-      print("Culture: " + culture)
-      print("Background: " + background)
-# Output for multiclass character
-    else:
-      print("Class: " + multiclass + " (" + first_class + "/" + second_class + ") ")
-      print("Subclass: " + multi_subclass)
-      print("Culture: " + culture)
-      print("Background: " + background)

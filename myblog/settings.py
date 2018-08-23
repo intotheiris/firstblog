@@ -22,9 +22,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = sggss.strip()
 LOGIN_REDIRECT_URL = '/'
-SECURE_SSL_REDIRECT = True
+SECURE_SSL_REDIRECT = False
 
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
 
