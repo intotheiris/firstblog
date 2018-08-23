@@ -26,7 +26,7 @@ SECURE_SSL_REDIRECT = True
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
+ALLOWED_HOSTS = ['.pythonanywhere.com']
 
 
 # Application definition
