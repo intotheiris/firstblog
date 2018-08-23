@@ -49,10 +49,21 @@ def generator_page(request):
         if multiclass == value:
           multiclass = key
     multi_subclass = first_subclass + "/" + choice(class_dict[second_class])
+    race_link = None
+    for key, value in race_link_dict.items():
+        if race == key:
+            race_link = value
+    class_link = None
+    for key, value in class_link_dict.items():
+        if first_class == key:
+            class_link = value
+        elif multiclass == key:
+            class_link = value
+
     singleormulti = randint(1,2)
     return render(request, 'blog/generator.html', {'gender' : gender, 'race' : race, 'subrace' : subrace, 'singleormulti' : singleormulti,
      'first_class' : first_class, 'first_subclass' : first_subclass, 'second_class' : second_class, 'multiclass' : multiclass,
-     'multi_subclass' : multi_subclass, 'background' : background, 'culture' : culture})
+     'multi_subclass' : multi_subclass, 'background' : background, 'culture' : culture, 'race_link' : race_link, 'class_link' : class_link})
 
 @login_required
 def post_new(request):
