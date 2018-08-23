@@ -5,7 +5,7 @@ race_dict = {
   "Elf" : ["Wood Elf", "Pale Elf"],
   "Dwarf" : ["Mountain Dwarf", "Boreal Dwarf"],
   "Orlan" : ["Hearth Orlan", "Wild Orlan"],
-  "Aumaua" : ["Coastal Aumaua", "Wild Aumaua"],
+  "Aumaua" : ["Coastal Aumaua", "Island Aumaua"],
   "Godlike" : ["Fire Godlike", "Death Godlike", "Moon Godlike", "Nature Godlike"]
 }
 race_link_dict = {
