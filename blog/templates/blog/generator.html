@@ -1,9 +1,7 @@
 {% extends 'blog/base.html' %}
-{% include "deadfiregenerator.py" %}
-{% include "dicts.py" %}
 {% block content %}
 
-            {% csrf_token %}
+
             {% autoescape off %}
 <div class='generator'>
   <div class='post'>
@@ -12,27 +10,28 @@
       This script generates a random character for use in the game <a href="https://eternity.obsidian.net/" target="_blank">Pillars of Eternity 2: Deadfire</a>.<br>
       It includes ALL character options available in Deadfire, with backgrounds restricted to your culture, as in the game itself.<br><br>
       Press the button below to make your new character!<br>
-      <form action='/deadfiregenerator' method='GET'>
-          <button class='button' type='submit'>Generate new character</button>
+      <form action='/deadfiregenerator/' method='POST'>
+          <button class='button' type='submit'>  {% csrf_token %}Generate new character</button>
+          <hr>
+        <p>Gender: <b>{{ gender }}</b><br><br>
+          Race: <b>{{ race }}</b><br>
+          Subrace: <b>{{subrace}}</b><br>
+        <a href="{{ race_link }}" target="_blank">Race/subrace description</b></a></p>
+        {% if singleormulti == 1 %}
+        <p>Class: <b>{{ first_class }}</b>
+          <br>Subclass: <b>{{ first_subclass }}</b><br>
+        <a href="{{ class_link }}" target="_blank">Class/subclass description</a></p>
+        {% endif %}
+        {% if singleormulti == 2 %}
+        <p>Class: <b>{{ multiclass }} ({{first_class}}/{{second_class}})</b> <br>
+          Subclass: <b>{{multi_subclass}}</b><br>
+        <a href="{{ class_link }}" target="_blank">Multiclass/subclass description</a></p>
+        {% endif %}
+        <p>Culture: <b>{{ culture}} </b>
+          <br>Background: <b>{{ background }}</b><br>
+          <a href="https://pillarsofeternity2.wiki.fextralife.com/Culture" target="_blank">Culture</a> and <a href="https://pillarsofeternity2.wiki.fextralife.com/Background" target="_blank">Background</a> descriptions
       </form>
-      <hr>
-    <p>Gender: <b>{{ gender }}</b><br><br>
-      Race: <b>{{ race }}</b><br>
-      Subrace: <b>{{subrace}}</b><br>
-    <a href="{{ race_link }}" target="_blank">Race/subrace description</b></a></p>
-    {% if singleormulti == 1 %}
-    <p>Class: <b>{{ first_class }}</b>
-      <br>Subclass: <b>{{ first_subclass }}</b><br>
-    <a href="{{ class_link }}" target="_blank">Class/subclass description</a></p>
-    {% endif %}
-    {% if singleormulti == 2 %}
-    <p>Class: <b>{{ multiclass }} ({{first_class}}/{{second_class}})</b> <br>
-      Subclass: <b>{{multi_subclass}}</b><br>
-    <a href="{{ class_link }}" target="_blank">Multiclass/subclass description</a></p>
-    {% endif %}
-    <p>Culture: <b>{{ culture}} </b>
-      <br>Background: <b>{{ background }}</b><br>
-      <a href="https://pillarsofeternity2.wiki.fextralife.com/Culture" target="_blank">Culture</a> and <a href="https://pillarsofeternity2.wiki.fextralife.com/Background" target="_blank">Background</a> descriptions
+
 {% endautoescape %}
 
       </div>
