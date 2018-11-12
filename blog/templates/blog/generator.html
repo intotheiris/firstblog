@@ -20,12 +20,12 @@
         {% if singleormulti == 1 %}
         <p>Class: <b>{{ first_class }}</b>
           <br>Subclass: <b>{{ first_subclass }}</b><br>
-        <a href="{{ class_link }}" target="_blank">Class/subclass description</a></p>
+        <a href="{{ singleclass_link }}" target="_blank">Class/subclass description</a></p>
         {% endif %}
         {% if singleormulti == 2 %}
         <p>Class: <b>{{ multiclass }} ({{first_class}}/{{second_class}})</b> <br>
           Subclass: <b>{{multi_subclass}}</b><br>
-        <a href="{{ class_link }}" target="_blank">Multiclass/subclass description</a></p>
+        <a href="{{ multiclass_link }}" target="_blank">Multiclass/subclass description</a></p>
         {% endif %}
         <p>Culture: <b>{{ culture}} </b>
           <br>Background: <b>{{ background }}</b><br>
